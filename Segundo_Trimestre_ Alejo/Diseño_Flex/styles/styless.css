@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    background: #f3f3f3;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    background: #49b7c6;
+    padding: 20px 0;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.contenedor {
+    background: rgb(24, 147, 158);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.tarjetas {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.tarjeta {
+    width: 30%;
+    background: #e5e9ff;
+    padding: 40px 0;
+    text-align: center;
+    border-radius: 6px;
+    font-size: 20px;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta:hover {
+    /* transform sirve para mover el elemento, se mueve hacia arriba */
+    transform: translateY(-8px);
+    /* box shadow sirve para tener sombras por esto es que se agrega*/
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
