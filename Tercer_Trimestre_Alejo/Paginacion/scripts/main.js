@@ -1,27 +1,25 @@
 import { loadUsers } from "./service.js";
-
 import {
-  addPrevPageBtnEvent,
-  addNextPageBtnEvent,
-  addFirstPageBtnEvent,
-  addLastPageBtnEvent,
-  addJumpForwardBtnEvent,
-  addJumpBackBtnEvent,
-  render,
+    addPrevPageBtnEvent,
+    addNextPageBtnEvent,
+    addFirstPageBtnEvent,
+    addLastPageBtnEvent,
+    addJumpForwardBtnEvent,
+    addJumpBackBtnEvent,
+    addLimitSelectEvent,
+    render,
 } from "./ui.js";
 
 async function startApp() {
-  addFirstPageBtnEvent();
-  addPrevPageBtnEvent();
-  addJumpBackBtnEvent();
-
-  addNextPageBtnEvent();
-  addJumpForwardBtnEvent();
-  addLastPageBtnEvent();
-
-  await loadUsers();
-
-  render();
+    addPrevPageBtnEvent();
+    addNextPageBtnEvent();
+    addFirstPageBtnEvent();
+    addLastPageBtnEvent();
+    addJumpForwardBtnEvent();
+    addJumpBackBtnEvent();
+    addLimitSelectEvent();
+    await loadUsers();
+    render();
 }
 
 startApp();

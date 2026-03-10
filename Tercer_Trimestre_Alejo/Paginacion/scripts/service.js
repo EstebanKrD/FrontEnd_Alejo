@@ -1,39 +1,36 @@
 import { getState, setState } from "./state.js";
 
-const URL = "https://pokeapi.co/api/v2/pokemon";
+const BASE_URL = "https://pokeapi.co/api/v2/pokemon";
 
 export async function loadUsers() {
-  const limit = getState("limit");
-  const page = getState("page");
+    try {
+        const limit = getState("limit");
+        const page = getState("page");
+        const offset = limit * page;
 
-  const offset = limit * page;
+        const res = await fetch(`${BASE_URL}?limit=${limit}&offset=${offset}`);
+        if (!res.ok) throw new Error("Error al conectar con la API");
 
-  try {
-    const response = await fetch(`${URL}?limit=${limit}&offset=${offset}`);
-    const data = await response.json();
+        const data = await res.json();
+        setState("total", data.count);
 
-    const pokemonList = data.results;
+        // Fetch detalle de cada pokémon en paralelo
+        const details = await Promise.all(
+            data.results.map((p) => fetch(p.url).then((r) => r.json()))
+        );
 
-    const users = await Promise.all(
-      pokemonList.map(async (pokemon) => {
-        const res = await fetch(pokemon.url);
-        const details = await res.json();
+        // Mapear al formato que usa getUserCard en ui.js
+        const users = details.map((p) => ({
+            image: p.sprites.other["official-artwork"].front_default || p.sprites.front_default,
+            name: p.name,
+            hp: p.stats.find((s) => s.stat.name === "hp")?.base_stat ?? "-",
+            attack: p.stats.find((s) => s.stat.name === "attack")?.base_stat ?? "-",
+            types: p.types.map((t) => t.type.name).join(", "),
+            abilities: p.abilities.map((a) => a.ability.name).join(", "),
+        }));
 
-        return {
-          id: details.id,
-          name: details.name,
-          image: details.sprites.front_default,
-          types: details.types.map((t) => t.type.name).join(", "),
-          abilities: details.abilities.map((a) => a.ability.name).join(", "),
-          hp: details.stats[0].base_stat,
-          attack: details.stats[1].base_stat,
-        };
-      }),
-    );
-
-    setState("users", users);
-    setState("total", data.count);
-  } catch (error) {
-    console.error("Error API", error);
-  }
+        setState("users", users);
+    } catch (err) {
+        console.error("Error al cargar pokémon:", err);
+    }
 }

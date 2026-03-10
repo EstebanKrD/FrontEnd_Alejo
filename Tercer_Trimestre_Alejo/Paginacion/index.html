@@ -5,26 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokemones</title>
     <script src="./scripts/main.js" type="module"></script>
-    <img>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <img src="./pokeapi_256.3fa72200.png" class="logo" alt="Pokemon Logo">
+    <img src="./pokeapi_256.3fa72200.png" class="logo" alt="Pokemon Logo" />
+
+    <div class="controls">
+      <label for="limitSelect">Por página:</label>
+      <select id="limitSelect">
+        <option value="6">6</option>
+        <option value="12" selected>12</option>
+        <option value="24">24</option>
+        <option value="48">48</option>
+      </select>
+    </div>
+
     <div class="btns">
       <button id="prevBtn">Atrás</button>
-      
+
       <div class="pagination">
         <button id="firstBtn">Primera</button>
-
         <button id="jumpBackBtn">-5</button>
-
         <span id="pageIndicator"></span>
-
         <button id="jumpForwardBtn">+5</button>
         <button id="lastBtn">Última</button>
-        <button id="nextBtn">Adelante</button>
       </div>
+
+      <button id="nextBtn">Adelante</button>
     </div>
+
     <div class="container" id="container"></div>
   </body>
 </html>
