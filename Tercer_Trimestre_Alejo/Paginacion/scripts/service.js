@@ -1,6 +1,6 @@
 import { getState, setState } from "./state.js";
 
-const BASE_URL = " ";
+const BASE_URL = "https://pokeapi.co/api/v2/pokemon";
 
 export async function loadUsers() {
     try {
