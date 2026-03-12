@@ -77,6 +77,55 @@ export function addLimitSelectEvent() {
     });
 }
 
+function renderPageNumbers() {
+    const page = getState("page");
+    const total = getState("total");
+    const limit = getState("limit");
+    const maxPages = Math.ceil(total / limit);
+
+    const info = document.getElementById("info-pagina");
+    const controles = document.getElementById("controles-paginacion");
+
+    info.textContent = `Página ${page + 1} de ${maxPages}`;
+    controles.innerHTML = "";
+
+    const range = 3;
+    let start = Math.max(0, page - range);
+    let end = Math.min(maxPages - 1, page + range);
+
+    if (end - start < range * 2) {
+        if (start === 0) end = Math.min(maxPages - 1, range * 2);
+        else start = Math.max(0, end - range * 2);
+    }
+
+    // Botón "First" si no estamos al inicio
+    if (start > 0) {
+        controles.appendChild(makePageBtn("First", 0, page));
+        if (start > 1) controles.insertAdjacentHTML("beforeend", `<span class="ellipsis">…</span>`);
+    }
+
+    for (let i = start; i <= end; i++) {
+        controles.appendChild(makePageBtn(i + 1, i, page));
+    }
+
+    // Botón "Last" si no estamos al final
+    if (end < maxPages - 1) {
+        if (end < maxPages - 2) controles.insertAdjacentHTML("beforeend", `<span class="ellipsis">…</span>`);
+        controles.appendChild(makePageBtn("Last", maxPages - 1, page));
+    }
+}
+
+function makePageBtn(label, targetPage, currentPage) {
+    const btn = document.createElement("button");
+    btn.textContent = label;
+    btn.className = "page-num-btn" + (targetPage === currentPage ? " active" : "");
+    if (label === "First") btn.className += " first-last-btn";
+    if (label === "Last") btn.className += " first-last-btn";
+    btn.addEventListener("click", () => changePage(targetPage));
+    return btn;
+}
+
+
 function getUserCard(user) {
     return `
     <div class="user-card">
@@ -105,6 +154,8 @@ export function render() {
 
     document.getElementById("pageIndicator").textContent =
         `Página ${page + 1} de ${maxPages}`;
+
+    renderPageNumbers();
 
     // Deshabilitar botones en los límites
     document.getElementById("prevBtn").disabled = page === 0;

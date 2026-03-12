@@ -146,6 +146,72 @@ button:disabled {
     border-color: #056467;
 }
 
+/* ── PAGINACIÓN NUMÉRICA ── */
+.paginacion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 3rem;
+}
+
+#info-pagina {
+    font-size: 13px;
+    font-weight: 700;
+    color: #6b7280;
+}
+
+#controles-paginacion {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: center;
+}
+
+.page-num-btn {
+    padding: 7px 13px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    background: white;
+    color: #374151;
+    min-width: 36px;
+    transition: all 0.15s ease;
+}
+
+.page-num-btn:hover {
+    background: #f3f4f6;
+    border-color: #9ca3af;
+}
+
+.page-num-btn.active {
+    background: #056467;
+    color: white;
+    border-color: #056467;
+}
+
+.first-last-btn {
+    background: #e6f4f4;
+    color: #056467;
+    border-color: #056467;
+    font-weight: 700;
+}
+
+.first-last-btn:hover {
+    background: #056467;
+    color: white;
+}
+
+.ellipsis {
+    color: #9ca3af;
+    font-weight: 700;
+    padding: 0 4px;
+    font-size: 14px;
+}
+
 #pageIndicator {
     font-size: 13px;
     font-weight: 700;
