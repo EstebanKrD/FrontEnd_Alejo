@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    // Especificar la carpeta donde estarán los archivos de ts
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    /*
+    Como se van a transpilar las importaciones de ts a js.
+    nodenext: ESModule como en la últime versión de nodejs.
+    commonjs: Resolución de modulos antigua de js (require)
+    */
+    "module": "nodenext",
+    // Versión de EcmaScript (ES) a la que va a transpilar.
+    "target": "esnext",
+    // Declaración de tipos para ts de librerías construidas en js
+    "types": [],
+
+    // Declaración de tipos al transiplar ts
+    "sourceMap": false,
+    "declaration": false,
+    "declarationMap": false,
+
+    /*
+      Establece undefined como valor por defecto al acceder a índices
+      de objetos no existentes.
+    */
+    "noUncheckedIndexedAccess": true,
+    /*
+      Regla para definir valor en propiedades opcionales:
+      true: se debe definir undefined en las propiedades opcionales.
+      false: automáticamente se pone como null cuando una propiedad opcional no está.
+    */
+    "exactOptionalPropertyTypes": true,
+
+    // Ts en modo estricto en cuanto a tipos, inicializaciones o definiciones.
+    "strict": true,
+
+    // Configuración en cuanto a importación y exportación de módulos
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true
+  }
+}
