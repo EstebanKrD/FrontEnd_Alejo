@@ -7,10 +7,10 @@ interface Calificacion {
 
 function calcularPromedio(
   calificaciones: Calificacion[],
-  estudianteId: number
+  estudianteId: number,
 ): { tarea: number; quices: number; examen: number } {
   const delEstudiante = calificaciones.filter(
-    (c) => c.estudianteId === estudianteId
+    (c) => c.estudianteId === estudianteId,
   );
 
   const promedioPorCategoria = (categoria: Calificacion["categoria"]) => {
