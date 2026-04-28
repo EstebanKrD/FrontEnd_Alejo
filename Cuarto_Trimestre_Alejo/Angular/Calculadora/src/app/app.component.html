@@ -1,0 +1,8 @@
+<div>
+  <app-pantalla
+    [operacion]="operacion"
+    [resultado]="resultado"
+    [error]="error"
+  ></app-pantalla>
+  <app-botones (botonPresionado)="manejarBoton($event)"></app-botones>
+</div>

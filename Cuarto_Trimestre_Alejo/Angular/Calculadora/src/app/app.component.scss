@@ -1,0 +1,12 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #0a0a1a;
+}
+
+app-pantalla, app-botones {
+  display: block;
+  width: 320px;
+}

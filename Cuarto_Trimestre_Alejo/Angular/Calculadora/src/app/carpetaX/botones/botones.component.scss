@@ -1,0 +1,57 @@
+:host {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  background: #16213e;
+  padding: 20px;
+  border-radius: 0 0 16px 16px;
+
+  button {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: none;
+    background: #0f3460;
+    color: #ffffff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+
+    &:hover {
+      background: #e94560;
+      transform: scale(1.08);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  background: #16213e;
+  padding: 20px;
+  border-radius: 0 0 16px 16px;
+
+  button {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: none;
+    background: #0f3460;
+    color: #ffffff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+
+    &:hover {
+      background: #e94560;
+      transform: scale(1.08);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}
