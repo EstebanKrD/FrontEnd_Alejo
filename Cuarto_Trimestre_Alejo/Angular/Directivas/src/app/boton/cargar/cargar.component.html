@@ -1,0 +1,10 @@
+<div *ngIf="estado === 'pendiente'">
+  <button class="btn btn-cargar" (click)="cargar.emit()">Cargar</button>
+  <div class="estado pendiente">
+    <p>Pendiente: aun no se han cargado datos.</p>
+  </div>
+</div>
+
+<div *ngIf="estado === 'cargando'">
+  <button class="btn btn-cargar" disabled>Cargando...</button>
+</div>

@@ -1,0 +1,10 @@
+<div *ngIf="estado === 'exito'">
+  <button class="btn btn-borrar" (click)="borrar.emit()">Borrar</button>
+
+  <div class="elementos">
+    <h2>Elementos cargados:</h2>
+    <ul>
+      <li *ngFor="let elemento of elementos">{{ elemento }}</li>
+    </ul>
+  </div>
+</div>
