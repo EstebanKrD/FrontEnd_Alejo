@@ -1,0 +1,21 @@
+<app-agregar (notaAgregada)="agregarNota($event)"></app-agregar>
+
+<div class="contenedor-notas">
+  <div
+    class="nota"
+    *ngFor="let nota of notas; let i = index"
+    [class.importante]="nota.importante"
+  >
+    <h3>{{ nota.titulo }}</h3>
+    <p>{{ nota.contenido }}</p>
+    <div class="acciones">
+      <button (click)="toggleImportante(i)">
+        {{ nota.importante ? "★" : "☆" }}
+      </button>
+      <app-eliminar
+        [index]="i"
+        (eliminarNota)="eliminarNota($event)"
+      ></app-eliminar>
+    </div>
+  </div>
+</div>
