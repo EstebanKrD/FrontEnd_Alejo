@@ -12,7 +12,7 @@ interface Nota {
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'Diario_Nota';
+  title = 'Escribe aquí tu nota lamentablemente';
   notas: Nota[] = [];
 
   agregarNota(nota: {
