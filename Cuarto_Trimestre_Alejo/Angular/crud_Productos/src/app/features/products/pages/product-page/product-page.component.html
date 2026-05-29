@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="left">
+    <app-product-list [products]="products" (deleteProduct)="onDeleteProduct($event)"></app-product-list>
+  </div>
+  <div class="right">
+    <app-product-form (productoCreado)="onAddProduct($event)"></app-product-form>
+  </div>
+</div>

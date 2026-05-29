@@ -1,0 +1,35 @@
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #2a2a2a;
+  border-radius: 10px;
+  padding: 16px 20px;
+  border: 1px solid #444;
+
+  .nombre {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+
+  .precio {
+    font-size: 16px;
+    color: #aaaaaa;
+  }
+
+  button {
+    background: none;
+    border: 1px solid #666;
+    border-radius: 6px;
+    color: #ffffff;
+    padding: 6px 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #ff4444;
+      border-color: #ff4444;
+    }
+  }
+}

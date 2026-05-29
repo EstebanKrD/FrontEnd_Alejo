@@ -1,0 +1,19 @@
+<div class="form-container">
+  <h2>Nuevo Producto</h2>
+
+  <div class="form-group">
+    <label>Nombre</label>
+    <input type="text" [(ngModel)]="nombre" placeholder="Nombre del producto" />
+  </div>
+
+  <div class="form-group">
+    <label>Precio</label>
+    <input type="number" [(ngModel)]="precio" placeholder="Precio del producto" />
+  </div>
+
+  <button 
+    (click)="onSubmit()" 
+    [disabled]="!nombre || precio <= 0">
+    Crear
+  </button>
+</div>

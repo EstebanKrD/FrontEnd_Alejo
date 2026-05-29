@@ -1,0 +1,9 @@
+<div class="card">
+  <span class="nombre">{{ product.nombre }}</span>
+
+  <span class="precio">
+    {{ product.precio | currency:'COP':'symbol':'1.0-0' }}
+  </span>
+
+  <button (click)="onDelete()">✕</button>
+</div>
